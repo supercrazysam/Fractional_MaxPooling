@@ -127,7 +127,7 @@ model.add(Conv2D(128, (3, 3), padding='same'))
 model.add(LeakyReLU(alpha = 0.3))
 model.add(FractionalPooling2D(pool_ratio=(1, 1.25, 1.25, 1),pseudo_random = True,overlap=True))
 
-'''
+
 # Block 3
 model.add(Conv2D(256, (3, 3), padding='same'))
 model.add(LeakyReLU(alpha = 0.3))
@@ -165,7 +165,7 @@ model.add(Conv2D(512, (3, 3), padding='same'))
 model.add(LeakyReLU(alpha = 0.3))
 model.add(FractionalPooling2D(pool_ratio=(1, 1.25, 1.25, 1),pseudo_random = True,overlap=True))
 model.add(Reshape((16,512)))
-'''
+
 # fc layer_1
 model.add(Dense(1024, kernel_constraint=maxnorm(3)))
 model.add(LeakyReLU(alpha = 0.3))
