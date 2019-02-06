@@ -51,8 +51,8 @@ X_test = X_test[0:9984]
 y_test = y_test[0:9984]
 
 # normalize inputs from 0-255 to 0.0-1.0
-X_train = X_train.astype('float16')#X_train.astype('float32')
-X_test = X_test.astype('float16')#X_test.astype('float32')
+X_train = X_train.astype('float32')
+X_test = X_test.astype('float32')
 X_train = X_train / 255.0
 X_test = X_test / 255.0
 
