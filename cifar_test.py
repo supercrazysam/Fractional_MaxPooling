@@ -201,7 +201,7 @@ checkpoint = ModelCheckpoint(filepath=filepath,
 callbacks = [checkpoint,  tbCallBack]
 #model.load_weights('Model.hdf5')
 epochs = 30
-model.fit_generator( datagen.flow(X_train, y_train, batch_size=batch_size), workers=4, validation_data = [X_test,y_test], nb_epoch=epochs,  callbacks=callbacks,shuffle=True,verbose=1  )
+model.fit_generator( datagen.flow(X_train, y_train, batch_size=batch_size), workers=4, validation_data = [X_test,y_test], nb_epoch=epochs,  callbacks=callbacks,shuffle=True,verbose=1 , steps_per_epoch=len(X_train)/batch_size )
 
 # Final evaluation of the model
 scores = model.evaluate(X_test, y_test, verbose=0)
