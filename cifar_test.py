@@ -415,43 +415,7 @@ checkpoint = ModelCheckpoint(filepath=filepath,
                              save_best_only=True)
 
 
-#########################
 
-import matplotlib.pyplot as plt
-
-class ShowWeights(keras.callbacks.Callback):
-    def on_train_begin(self, logs={}):
-        #self.acc = []
-        pass
-
-    def on_epoch_end(self, batch, logs={}):
-        #self.acc.append(logs.get('val_acc'))
-        weights, biases = model.layers[0].get_weights()
-        x1w = model.get_weights()[0][:,:,0,:]
-        for i in range(1,64+1):
-            plt.subplot(8,8,i)
-            plt.imshow(x1w[:,:,i-1],interpolation="nearest",cmap="gray")
-        plt.show()
-showweight = ShowWeights()
-
-
-def weight():
-    weights, biases = model.layers[0].output
-    x1w = model.get_weights()[0][:,:,0,:]
-    for i in range(1,64+1):
-        plt.subplot(8,8,i)
-        plt.imshow(x1w[:,:,i-1],interpolation="nearest",cmap="gray")
-    plt.show()
-
-
-def output():
-    weights, biases = model.layers[0].output()
-    x1w = model.get_weights()[0][:,:,0,:]
-    for i in range(1,64+1):
-        plt.subplot(8,8,i)
-        plt.imshow(x1w[:,:,i],interpolation="nearest",cmap="gray")
-    plt.show()
-#########################
 
 #callbacks = [checkpoint,  tbCallBack, showweight]
 callbacks = [checkpoint,   feature,  tbCallBack]
